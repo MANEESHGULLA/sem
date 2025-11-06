@@ -229,3 +229,126 @@ Alice (UA) → SMTP Server → Internet → Bob's Mail Server (MTA) → Bob's UA
 
 ---
 
+# World Wide Web (WWW)
+
+## 🔹 Definition
+The **World Wide Web (WWW)** is a system of **interlinked documents** (web pages) accessible over the Internet.  
+Pages are connected using **hyperlinks** and identified using **URLs**, and accessed via web browsers.
+
+---
+
+## 🔹 Key Components
+
+| Component | Role | Examples |
+|----------|------|----------|
+| **Web Browser** | Requests, interprets, and displays web pages | Chrome, Firefox, Edge |
+| **Web Server** | Stores & serves web pages | Apache, Nginx, IIS |
+| **HTTP/HTTPS** | Communication protocol for transferring web data | Port **80 / 443** |
+| **HTML** | Formatting language for webpage content | Tags, text, images, links |
+
+---
+
+## 🔹 URL (Uniform Resource Locator)
+Example URL:http://www.phdcomics.com/comics.php
+
+
+| Part | Meaning |
+|------|---------|
+| **http** | Protocol |
+| **www.phdcomics.com** | Server (Domain name) |
+| **/comics.php** | Resource path (file/page) |
+
+### Common URL Protocols
+| Name | Used For | Example |
+|------|---------|---------|
+| **http** | Hypertext pages | `http://example.com` |
+| **https** | Secure hypertext | `https://bank.com` |
+| **ftp** | File transfer | `ftp://ftp.cs.vu.nl/README` |
+| **file** | Local file access | `file:///C:/user/data` |
+| **mailto** | Send email | `mailto:john@example.com` |
+| **rtsp** | Streaming media | `rtsp://media.com/video.mpg` |
+| **sip** | Internet calls | `sip:user@server.com` |
+| **about** | Browser info pages | `about:plugins` |
+
+---
+
+## 🔹 How a Web Page is Accessed (Client Side Steps)
+
+1. User enters a **URL** in the browser.
+2. Browser determines **protocol** (e.g., HTTP).
+3. Browser queries **DNS** to get the server’s **IP address**.
+4. Browser opens a **TCP connection** with the server (Port **80** or **443**).
+5. Browser sends an **HTTP GET request**.
+6. Server sends back the **HTML page**.
+7. Browser downloads additional resources (images, CSS, JS).
+8. Browser **renders** the page for display.
+
+---
+
+## 🔹 How a Web Server Responds (Server Side Steps)
+
+1. Accept **TCP connection** from browser.
+2. Read the **requested page**.
+3. **Check cache** (optional).
+4. Fetch file from disk **or run script** (e.g., PHP).
+5. Determine **content type** using **MIME types**.
+6. Send **HTTP response** back to browser.
+7. Write entry to **server log**.
+8. Close idle TCP connection.
+
+---
+
+## 🔹 HTTP Protocol (HyperText Transfer Protocol)
+
+| Feature | Description |
+|--------|-------------|
+| **Type** | Request-Response protocol (Client ⇄ Server) |
+| **Transport** | Runs **on top of TCP** |
+| **Default Port** | **80** (HTTP), **443** (HTTPS) |
+| **Headers** | Human-readable **ASCII** text |
+| **Content Types** | Identified using **MIME Types** |
+| **Pipelining** | Can send **multiple requests** in same connection |
+| **Caching** | Allows storing responses to reduce repeated server hits |
+
+---
+
+## 🔹 MIME Types (Content Identification Examples)
+| MIME Type | Meaning |
+|----------|---------|
+| `text/html` | Web page |
+| `image/png` | Image file |
+| `video/mp4` | Video content |
+| `application/pdf` | PDF document |
+
+---
+![alt text](https://image.slidesharecdn.com/presentation-140905091245-phpapp01/85/The-Application-Layer-31-320.jpg)
+## 🔹 Cookies (Maintaining State in Web)
+HTTP is **stateless**, meaning it does not remember users across requests.  
+**Cookies** add memory/session support.
+
+### How Cookies Work
+1. Server sends cookie in **Set-Cookie** header.
+2. Browser **stores** the cookie.
+3. Browser sends cookie back with **future requests**.
+4. Server identifies user (e.g., login session).
+
+Used for:
+- Login sessions
+- User preferences
+- Shopping carts
+
+---
+
+## 🧠 Revision Key Points
+
+| Topic | Key Idea |
+|-------|----------|
+| **WWW** | Collection of interlinked web pages |
+| **URL** | Identifies web resource |
+| **HTTP** | Transfers web data (stateless) |
+| **Browser** | Displays web pages |
+| **Server** | Provides web content |
+| **Cookies** | Maintain user session/state |
+
+---
+
