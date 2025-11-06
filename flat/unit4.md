@@ -141,4 +141,44 @@ Notes:
 - For every `b`, pop one `A`.
 - If input ends and only `Z` remains on stack, move to `q_accept`.
 
+---
+# PDA Concepts with Examples
+
+## 1) Instantaneous Description (ID) of a PDA
+
+An **Instantaneous Description (ID)** represents the **current status of a PDA**.
+
+It is written as:(q, w, α)
+
+| Symbol | Meaning |
+|--------|---------|
+| `q`    | Current state |
+| `w`    | Remaining input string |
+| `α`    | Current stack contents (top on left) |
+
+### Example ID (q0, abb, AZ)
+Meaning:
+- PDA is in **state** `q0`
+- Remaining **input** is `abb`
+- **Stack** has `A` (top), followed by `Z` (bottom)
+
+### Transition Rule Format (q, a w, X β) ⊢ (p, w, γ β)
+| Symbol | Meaning |
+|--------|---------|
+| `a`    | next input symbol |
+| `X`    | symbol on top of stack |
+| `γ`    | new symbol(s) to push |
+| `⊢`    | means "yields in one step" |
+
+---
+
+## Example Step-by-Step ID for string `aabb` in PDA for a^n b^n
+Execution:
+(q0, aabb, Z)
+⊢ (q0, abb, AZ)
+⊢ (q0, bb, AAZ)
+⊢ (q1, b, AZ)
+⊢ (q1, ε, Z)
+
+---
 
