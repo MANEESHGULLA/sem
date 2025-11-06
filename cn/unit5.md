@@ -31,6 +31,15 @@ Client → Resolver → Local DNS Server → Root Server → TLD Server → Auth
 ---
 
 ## 🔹 DNS Namespace (Hierarchy)
+- Hierarchical tree structure of domains.
+
+Top Level Domains (TLDs):
+• Generic (.com , .edu , .org , .net)
+• Country (.in , .us , .uk)
+
+- Managed by ICANN (Internet Corporation for Assigned Names and Numbers).
+
+- Each subdomain delegates responsibility to lower domains.
 
           (Root)
              |
