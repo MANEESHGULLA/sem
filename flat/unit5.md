@@ -202,5 +202,53 @@ Pumping breaks equal counts → Not CFL.
 
 ---
 
+# Applications of Pumping Lemma for Context-Free Languages
+
+The **Pumping Lemma for CFLs** is used to **prove that a language is *not* context-free**.
+
+---
+
+## **Pumping Lemma Statement**
+
+If **L** is a Context-Free Language, then there exists a constant **p** (called the *pumping length*) such that **any** string:
+
+can be written as:
+
+such that:
+
+1. **v x ≠ ε**  
+   (At least one of **v** or **x** must be non-empty)
+
+2. **|v w x| ≤ p**  
+   (Middle segment is bounded in length)
+
+3. **u vⁱ w xⁱ y ∈ L  for all  i ≥ 0**  
+   (The string remains in the language even when **v** and **x** are pumped)
+
+---
+
+## **How to Use Pumping Lemma (To Prove Language is *Not* CFL)**
+
+1. **Assume** the language **L is context-free**.
+2. Let **p** be the pumping length given by the lemma.
+3. Choose a string **s ∈ L** such that `|s| ≥ p`.
+4. Write **s** in the form `u v w x y`.
+5. **Pump** the string (try **i = 0** or **i = 2**).
+6. If the pumped string is **not in L**, then:
+
+---
+
+## **Example of a Language that is NOT Context-Free**
+
+
+- Using the Pumping Lemma:
+  - Pumping changes the number of **a's**, **b's**, or **c's**.
+  - The counts can no longer remain equal.
+  - Resulting string is **not in the language**.
+
+Therefore:
+
+
+
 ## **End of Notes – Fully Exam Ready ✅**
 
