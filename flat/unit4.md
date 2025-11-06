@@ -52,7 +52,7 @@ Then it may:
 - **Read** next input symbol
 
 ---
-## Contruct PDA
+## Construct PDA
 PDA for L = { a^n b^n | n ≥ 1 }
 
 M = (Q, Σ, Γ, δ, q0, Z0, F)
