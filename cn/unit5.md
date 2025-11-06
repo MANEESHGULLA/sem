@@ -1,0 +1,106 @@
+# Domain Name System (DNS)
+
+## 🔹 Definition
+DNS (Domain Name System) is a **distributed database** that maps human-friendly domain names (e.g., `www.google.com`) to machine-friendly IP addresses (e.g., `142.250.190.14`).  
+It converts **names → numbers**.
+
+---
+
+## 🔹 Purpose
+- Humans remember **names**
+- Computers communicate using **IP addresses**
+- DNS acts like the **phonebook of the Internet**
+
+---
+
+## 🔹 Working of DNS
+
+1. User enters a URL in the browser.
+2. Browser calls the **Resolver**.
+3. Resolver queries the **Local DNS Server**.
+4. If not found:
+   - Local DNS contacts **Root Server**
+   - Then **TLD Server**
+   - Then **Authoritative DNS Server**
+5. Authoritative server returns the **IP address**.
+6. Local DNS caches the result.
+7. Browser connects to the server using the returned IP.
+
+### 🔁 Flow Diagram
+
+---
+
+## 🔹 DNS Namespace (Hierarchy)
+
+          (Root)
+             |
+           TLD (.com, .in)
+             |
+       Second Level (google, nitk)
+             |
+       Subdomain (www, mail)
+
+### 🏷 Types of Top-Level Domains (TLDs)
+
+| Type | Examples | Meaning |
+|------|----------|---------|
+| Generic TLD (gTLD) | .com , .org , .net , .edu | Global usage |
+| Country Code TLD (ccTLD) | .in , .us , .uk | Country-specific |
+
+**Managed by:** ICANN (Internet Corporation for Assigned Names and Numbers)
+
+---
+
+## 🔗 Delegation (Who controls what?)
+| Domain Part | Managed By |
+|------------|------------|
+| `.in` | NIXI (India) |
+| `ac.in` | Academic Registry |
+| `nitk.ac.in` | NITK Server |
+
+---
+
+## 📄 DNS Resource Records (RR)
+
+Every DNS entry has **5 fields**:
+
+| Field | Meaning | Example |
+|------|---------|---------|
+| Name | Domain Name | www.nitk.ac.in |
+| TTL | Cache time | 3600s |
+| Class | Usually `IN` (Internet) | IN |
+| Type | Record type (A, MX, CNAME, etc.) | A |
+| Value | Actual data (IP, server name, etc.) | 14.139.155.13 |
+
+### Record Types
+
+| Type | Meaning | Example | Explanation |
+|------|---------|---------|-------------|
+| A | Domain → IPv4 | `www.nitk.ac.in → 14.139.155.13` | Like name → phone number |
+| AAAA | Domain → IPv6 | `google.com → 2606:4700:4700::1111` | Same as A but IPv6 |
+| NS | Name Server | `nitk.ac.in → ns1.nitk.ac.in` | Shows who manages DNS |
+| MX | Mail Server | `nitk.ac.in → mail.nitk.ac.in` | Where to deliver emails |
+| CNAME | Alias (Nickname) | `www → nitk.ac.in` | Points one name to another |
+| PTR | Reverse Lookup | `14.139.155.13 → www.nitk.ac.in` | IP → Name |
+
+---
+
+## 🔄 Reverse Lookup
+Used to find **hostname from IP** using `PTR` records.  
+Example: `14.190.250.142.in-addr.arpa`
+
+---
+
+## 🔌 Ports and Protocols
+| Use | Protocol | Port |
+|-----|----------|------|
+| DNS Queries | UDP | **53** |
+| Zone Transfers | TCP | **53** |
+
+---
+
+## ✅ Example
+User Types: www.nitk.ac.in
+
+DNS Resolves: 14.139.155.13
+Browser Connects → Website Opens ✅
