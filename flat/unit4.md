@@ -86,4 +86,71 @@ Transitions δ (written δ(state, input, top) = (state’, stack-rewrite)):
 Notes:
 - No transition on b with top Z (prevents starting with b or having n=0).
 - Strings with extra a’s or b’s leave unmatched A or need a pop when none exists → reject.
+---
+# PDA for L = { a^n b^n | n ≥ 1 }
+
+## States
+q0 → reading `a` and pushing  
+q1 → reading `b` and popping  
+q_accept → final accepting state
+
+## Stack Symbols
+Z = initial bottom-of-stack marker  
+A = one `a` counted in stack
+
+---
+
+## Graphical PDA (Text State Diagram)
+
+            (start)
+              |
+              v
+           +------+
+           |  q0  |
+           +------+
+            |  ^ 
+   a, Z→AZ  |  |  a, A→AA
+            |  |
+            v  |
+           (loop on q0)
+           
+            |
+            |  b, A→ε     (first b switches to q1)
+            v
+           +------+
+           |  q1  |
+           +------+
+            ^   |
+            |   |
+        b, A→ε  |
+            |   |
+            +---+  (loop on q1 for b's)
+
+            |
+            |  ε, Z→Z
+            v
+        +-----------+
+        | q_accept  |
+        +-----------+
+
+---
+
+## Transition Format
+(input symbol, stack_top → stack_action)
+
+| Transition | Meaning |
+|-----------|---------|
+| a, Z → AZ | On `a` with `Z` on stack, push `A` |
+| a, A → AA | On `a` with `A` on stack, push another `A` |
+| b, A → ε  | On `b` with `A` on stack, pop `A` |
+| ε, Z → Z  | Input ends & only Z remains → move to accept |
+
+---
+
+## Explanation
+- In **q0**, push `A` for each `a`.
+- On first `b`, move to **q1** and begin popping `A`.
+- For every `b`, pop one `A`.
+- If input ends and only `Z` remains on stack, move to `q_accept`.
+
 
