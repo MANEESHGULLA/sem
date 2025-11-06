@@ -87,18 +87,6 @@ Notes:
 - No transition on b with top Z (prevents starting with b or having n=0).
 - Strings with extra a’s or b’s leave unmatched A or need a pop when none exists → reject.
 ---
-# PDA for L = { a^n b^n | n ≥ 1 }
-
-## States
-q0 → reading `a` and pushing  
-q1 → reading `b` and popping  
-q_accept → final accepting state
-
-## Stack Symbols
-Z = initial bottom-of-stack marker  
-A = one `a` counted in stack
-
----
 
 ## Graphical PDA (Text State Diagram)
 
