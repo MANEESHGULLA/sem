@@ -1,3 +1,33 @@
+# Application Layer
+
+## 🔹 Definition
+Top layer of OSI model that **provides services directly to the user** for network communication.
+
+---
+
+## 🔹 Role
+- Interface between **user applications and network**.
+- Supports web browsing, email, file transfer, remote login.
+
+---
+
+## 🔹 Main Protocols
+
+| Protocol | Purpose |
+|---------|---------|
+| **HTTP / HTTPS** | Web browsing |
+| **FTP** | File transfer |
+| **SMTP** | Sending emails |
+| **POP3 / IMAP** | Receiving emails |
+| **DNS** | Domain name → IP address |
+
+---
+
+## 🔁 Example
+User opens browser → HTTP/HTTPS is used to request and view webpages.
+
+---
+
 # Domain Name System (DNS)
 
 ## 🔹 Definition
