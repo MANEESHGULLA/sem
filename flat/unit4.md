@@ -52,3 +52,37 @@ Then it may:
 - **Read** next input symbol
 
 ---
+PDA for L = { a^n b^n | n ≥ 1 }
+
+M = (Q, Σ, Γ, δ, q0, Z0, F)
+
+Q   = { q0, q1, q_accept }
+Σ   = { a, b }
+Γ   = { Z, A }                 ; Z = bottom marker, A = count of a’s
+q0  = q0
+Z0  = Z
+F   = { q_accept }             ; accept by final state
+
+Intuition:
+- In q0, read all a’s and push A for each a.
+- On the first b, move to q1 and start popping one A per b.
+- Accept iff input ends with only Z left (counts matched and n ≥ 1).
+
+Transitions δ (written δ(state, input, top) = (state’, stack-rewrite)):
+1) Push a’s (stay in q0)
+   δ(q0, a, Z) = (q0, AZ)      ; first a: push A over Z
+   δ(q0, a, A) = (q0, AA)      ; more a’s: push A
+
+2) First b switches to popping phase
+   δ(q0, b, A) = (q1, ε)       ; start matching: pop one A
+
+3) Keep popping for remaining b’s (stay in q1)
+   δ(q1, b, A) = (q1, ε)       ; pop one A per b
+
+4) Accept at end if exactly matched
+   δ(q1, ε, Z) = (q_accept, Z) ; input finished and only Z remains → accept
+
+Notes:
+- No transition on b with top Z (prevents starting with b or having n=0).
+- Strings with extra a’s or b’s leave unmatched A or need a pop when none exists → reject.
+
