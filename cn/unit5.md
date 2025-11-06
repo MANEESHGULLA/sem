@@ -27,13 +27,13 @@ It converts **names → numbers**.
 7. Browser connects to the server using the returned IP.
 
 ### 🔁 Flow Diagram
-Client → Resolver → Local DNS Server → Root Server → TLD Server → Authoritative Server → Client (IP Returned)
+- Client → Resolver → Local DNS Server → Root Server → TLD Server → Authoritative Server → Client (IP Returned)
 ---
 
 ## 🔹 DNS Namespace (Hierarchy)
 - Hierarchical tree structure of domains.
 
-Top Level Domains (TLDs):
+- Top Level Domains (TLDs):
 • Generic (.com , .edu , .org , .net)
 • Country (.in , .us , .uk)
 
