@@ -27,7 +27,7 @@ It converts **names → numbers**.
 7. Browser connects to the server using the returned IP.
 
 ### 🔁 Flow Diagram
-
+Client → Resolver → Local DNS Server → Root Server → TLD Server → Authoritative Server → Client (IP Returned)
 ---
 
 ## 🔹 DNS Namespace (Hierarchy)
@@ -104,3 +104,88 @@ User Types: www.nitk.ac.in
 
 DNS Resolves: 14.139.155.13
 Browser Connects → Website Opens ✅
+
+---
+# Electronic Mail (E-Mail)
+
+## 🔹 Definition
+E-mail is a service that allows users to **send and receive messages** (text, image, audio, video) over the Internet.
+
+---
+
+## 🔹 Architecture
+
+### 1. **User Agents (UA)**
+- Applications used to compose, read, and manage emails.
+- Examples: **Gmail**, **Outlook**, **Thunderbird**
+
+### 2. **Message Transfer Agents (MTA)**
+- Responsible for **sending and transferring** messages between mail servers.
+- Example: **Sendmail**, **Postfix**
+
+---
+
+## 🔹 Mail Flow Process
+Sender UA → Sender MTA → Internet → Receiver MTA → Receiver UA
+
+---
+
+## 🔹 Protocols Used
+
+| Purpose | Protocol | Port |
+|--------|----------|------|
+| Sending Email | **SMTP** (Simple Mail Transfer Protocol) | **25** (server-to-server), **587** (mail submission) |
+| Receiving Email (download and delete) | **POP3** (Post Office Protocol v3) | **110** |
+| Receiving Email + folder management (keeps mail on server) | **IMAP** (Internet Message Access Protocol) | **143** |
+
+---
+
+## 🔹 Message Format
+
+### **1. Header**
+Contains control information:
+- To
+- From
+- Date
+- Subject
+- Message-ID
+- Content-Type
+
+### **2. Body**
+- The **actual content** of the email.
+
+### **MIME (Multipurpose Internet Mail Extensions)**
+Allows emails to include:
+- Images
+- Audio
+- Video
+- PDF / DOC files  
+*(i.e., attachments & multimedia content)*
+
+---
+
+## 🔹 Working Steps
+
+1. User composes message in **User Agent (UA)**.
+2. UA sends message to **SMTP Server (Sender MTA)**.
+3. SMTP transfers message through the **Internet** to Receiver's **Mail Server (Receiver MTA)**.
+4. Receiver uses **POP3** or **IMAP** via UA to read message.
+
+---
+
+## 🔹 Diagram (Flow)
+Alice (UA) → SMTP Server → Internet → Bob's Mail Server (MTA) → Bob's UA (IMAP/POP3)
+
+---
+
+## 🧠 Quick Revision
+
+| Concept | Meaning |
+|--------|---------|
+| **SMTP** | Used for **sending** mails |
+| **POP3** | Used for **downloading** mails (removes from server) |
+| **IMAP** | Used for **reading** mails while keeping them stored on server |
+| **MIME** | Enables **attachments** and multimedia content in emails |
+
+---
+
