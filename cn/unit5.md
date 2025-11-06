@@ -352,3 +352,200 @@ Used for:
 
 ---
 
+# **Streaming Audio and Video (Deep Notes)**
+
+---
+
+## ✅ **Overview**
+Modern networks carry **audio, video, and interactive multimedia**.  
+These media types require **high data rates**, **continuous playback**, and **low delay** → so networking and compression techniques are essential.
+
+---
+
+# **1) Digital Audio**
+
+### 🎵 What is Audio Digitization?
+Audio is originally **analog** (continuous sound wave).  
+To store or transmit it, we convert to **digital (binary)** form.
+
+### **Process**
+1. **Microphone** converts sound → electrical signal.
+2. **ADC (Analog-to-Digital Converter)** samples the signal.
+3. Each sample is **quantized** into a binary number.
+4. Stored / transmitted as digital audio.
+
+### **Sampling**
+- Number of samples taken per second.
+- Example:
+  - **44.1 kHz** (CD-quality audio)
+  - **48 kHz** (Professional audio)
+
+Higher sampling rate → more accurate sound reproduction.
+
+### **Bit Depth**
+- Number of bits per sample.
+- **16-bit audio** provides 65,536 amplitude levels.
+- Higher bit depth → lower quantization noise.
+
+### **Quantization Noise**
+- Difference between actual signal and recorded digital value.
+- If bit depth is low → noise becomes audible.
+
+---
+
+## 🎧 **Audio Compression**
+
+Audio files are **compressed** to reduce:
+- Storage size
+- Transmission bandwidth
+
+### **Two Key Functions**
+| Function | Meaning |
+|---------|---------|
+| **Encoding** | Compressing data at sender |
+| **Decoding** | Decompressing at receiver |
+
+### **Types of Compression**
+| Type | Idea | Examples |
+|------|------|----------|
+| **Waveform Coding** | Uses frequency transforms (e.g., Fourier/DCT) | Older formats |
+| **Perceptual Coding** | Uses psychoacoustics (removes inaudible sounds) | **MP3**, **AAC** |
+
+Human ears do **not** hear all frequencies → unused frequencies are removed to reduce size.
+
+---
+
+# **2) Digital Video**
+
+### 🎥 What is Video Digitization?
+Video = **sequence of images (frames)** displayed rapidly (~ **25–60 fps**).
+
+Each frame is made of **pixels**:
+- **RGB** color model (3 values per pixel)
+- or **YCbCr** (brightness + color difference)
+
+### **Why Compression Is Needed**
+Uncompressed HD video is **too large** for storage/transmission.
+
+---
+
+## 🎞 **Video Compression Workflow (JPEG / MPEG)**
+
+### Step-by-Step (Core Pipeline)
+1. **Convert RGB → YCbCr**
+   - Human eye is more sensitive to brightness (Y) than color (Cb, Cr).
+2. **Chrominance Subsampling**
+   - Reduce resolution of Cb & Cr components.
+3. **DCT (Discrete Cosine Transform)**
+   - Converts 8×8 pixel blocks into frequency components.
+4. **Quantization**
+   - Remove small frequency components (lossy step).
+5. **Run-Length Encoding + Huffman Encoding**
+   - Compress repeated patterns efficiently.
+
+---
+
+## 🎬 MPEG Video Frame Types
+
+| Frame Type | Meaning | Reduces Data By |
+|-----------|---------|----------------|
+| **I-Frame** | Full independent picture | No reference use (large) |
+| **P-Frame** | Frame predicted from previous frames | Removes temporal redundancy |
+| **B-Frame** | Uses both previous & next frames | Highest compression |
+
+**Example:**I → B → B → P → B → B → P → B → B → I
+
+
+---
+
+# **3) Streaming Stored Media (Video-on-Demand)**
+
+Used in **YouTube, Netflix, Prime Video**.
+
+### How It Works:
+- Video stored on a **media server**.
+- User downloads + plays **simultaneously** (no need to wait fully).
+- Uses **RTSP (Real-Time Streaming Protocol)** for controls:
+  - **Play, Pause, Resume, Seek**
+
+### Handling Network Problems:
+| Strategy | Advantage | Disadvantage |
+|---------|-----------|--------------|
+| **TCP** | Reliable | High delay (jitter) |
+| **FEC (Parity packets)** | Repairs losses | More overhead |
+| **Interleaving** | Distributes losses | Complexity; delay increases |
+
+### Buffering
+Client maintains a **playback buffer** to absorb jitter:
+Network → Buffer → Playback
+
+
+---
+
+# **4) Streaming Live Media**
+
+Used in **Online TV, Live Events, Radio Broadcasts, YouTube Live**.
+
+### Characteristics:
+- Data is created and sent **in real-time**.
+- Cannot download ahead → must be played as it arrives.
+- Often uses **UDP** (fast but unreliable).
+
+### Optimization:
+- If multiple users watch the same stream →
+  **Multicast** can send **one copy to many users** efficiently (if network supports it).
+
+---
+
+# **5) Real-Time Conferencing (VoIP / Video Calling)**
+
+Used in **Zoom, Google Meet, Teams, Skype**.
+
+### Required Protocols
+| Purpose | Protocol |
+|--------|----------|
+| **Media Delivery (audio/video)** | **RTP (Real-time Transport Protocol)** |
+| **Session Setup / Call Management** | **SIP or H.323** |
+
+---
+
+## 📞 SIP Signaling Methods (Call Control)
+
+| Method | Meaning |
+|--------|---------|
+| **INVITE** | Start a call |
+| **ACK** | Confirm call |
+| **BYE** | End call |
+| **CANCEL** | Cancel attempt |
+| **OPTIONS** | Query server capabilities |
+| **REGISTER** | Inform server of user’s address |
+
+---
+
+## 🆚 Comparison: **H.323 vs SIP**
+
+| Item | **H.323** | **SIP** |
+|------|-----------|---------|
+| Designed By | ITU | IETF |
+| Architecture | Monolithic | Modular |
+| Setup Protocol | Q.931 over TCP | SIP over TCP/UDP |
+| Message Format | Binary | ASCII (human-readable) |
+| Multimedia Support | Yes | Yes |
+| Addressing | Telephone style numbers | URLs (easy to integrate with web) |
+| Complexity | Large, complex | Simple, flexible |
+| Common Today? | Legacy systems | **Used in most modern apps** |
+
+---
+
+# 🧠 Final Revision Summary
+
+| Topic | Key Idea |
+|------|----------|
+| Audio | ADC → Digital → Compression |
+| Video | Frames → DCT → MPEG Frames (I,P,B) |
+| Stored Streaming | RTSP + Buffering |
+| Live Streaming | UDP + Multicast |
+| Voice/Video Calls | SIP/H.323 for setup, RTP for media |
+
+---
+
