@@ -1,4 +1,4 @@
-# Application Layer
+<img width="855" height="278" alt="image" src="https://github.com/user-attachments/assets/9699da88-19b6-4d5b-9ad5-c1f4a0a6e8b4" /><img width="855" height="278" alt="image" src="https://github.com/user-attachments/assets/c761456a-a979-4232-a9e9-4c8a98cd6018" /><img width="992" height="563" alt="image" src="https://github.com/user-attachments/assets/41b202ba-b74c-47b3-ab9a-6a062c2e5e8f" /># Application Layer
 
 ## 🔹 Definition
 Top layer of OSI model that **provides services directly to the user** for network communication.
@@ -166,6 +166,7 @@ E-mail is a service that allows users to **send and receive messages** (text, im
 
 ## 🔹 Mail Flow Process
 Sender UA → Sender MTA → Internet → Receiver MTA → Receiver UA
+![alt text](https://signaturesatori.com/wp-content/uploads/image-31.png.webp)
 
 ---
 
