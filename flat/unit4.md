@@ -217,9 +217,9 @@ Transition Rules:
 
 ### Example S → a S b | ε
 1) Variable expansion:
-   δ(q, ε, S) = (q, a S b)
-   δ(q, ε, S) = (q, ε)
+   - δ(q, ε, S) = (q, a S b)
+   - δ(q, ε, S) = (q, ε)
 
 2) Matching terminals:
-   δ(q, a, a) = (q, ε)
-   δ(q, b, b) = (q, ε)
+   - δ(q, a, a) = (q, ε)
+   - δ(q, b, b) = (q, ε)
