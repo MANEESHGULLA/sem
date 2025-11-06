@@ -184,3 +184,22 @@ Execution:
 
 ---
 
+PDA **accepts** a string if **after reading all input**, the machine **enters a final state**, regardless of stack contents.
+(q0, w, Z0) ⊢* (qf, ε, α)
+where `qf ∈ Final state(F)`.
+
+### Example PDA Execution (Accept by Final State)
+(q0, aabb, Z)
+- ⊢ (q1, ε, Z)
+- ⊢ (q_accept, ε, Z) ← Input finished and PDA is in final state → ACCEPT
+
+---
+
+## 4) Acceptance by Empty Stack
+PDA **accepts** a string if **after reading all input**, the **stack becomes empty**, regardless of current state.
+(q0, w, Z0) ⊢* (q, ε, ε)
+### Example PDA Execution (Accept by Empty Stack)
+(q0, aabb, Z)
+- ⊢ (q1, ε, Z)
+- ⊢ (q1, ε, ε) ← Stack empty → ACCEPT
+
