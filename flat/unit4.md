@@ -165,7 +165,9 @@ Meaning:
 ### Transition Rule Format (q, a w, X β) ⊢ (p, w, γ β)
 | Symbol | Meaning |
 |--------|---------|
+| `q`    | current state |
 | `a`    | next input symbol |
+| `w`    | remaining string |
 | `X`    | symbol on top of stack |
 | `γ`    | new symbol(s) to push |
 | `⊢`    | means "yields in one step" |
@@ -175,10 +177,10 @@ Meaning:
 ## Example Step-by-Step ID for string `aabb` in PDA for a^n b^n
 Execution:
 (q0, aabb, Z)
-⊢ (q0, abb, AZ)
-⊢ (q0, bb, AAZ)
-⊢ (q1, b, AZ)
-⊢ (q1, ε, Z)
+- ⊢ (q0, abb, AZ)
+- ⊢ (q0, bb, AAZ)
+- ⊢ (q1, b, AZ)
+- ⊢ (q1, ε, Z)
 
 ---
 
