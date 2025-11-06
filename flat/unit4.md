@@ -203,3 +203,23 @@ PDA **accepts** a string if **after reading all input**, the **stack becomes emp
 - ⊢ (q1, ε, Z)
 - ⊢ (q1, ε, ε) ← Stack empty → ACCEPT
 
+---
+## CFG → PDA conversion
+Transition Rules:
+
+1) For each production A → α in R:
+   δ(q, ε, A) = (q, α)
+
+2) For each terminal a in Σ:
+   δ(q, a, a) = (q, ε)
+
+3) No other transitions.
+
+### Example S → a S b | ε
+1) Variable expansion:
+   δ(q, ε, S) = (q, a S b)
+   δ(q, ε, S) = (q, ε)
+
+2) Matching terminals:
+   δ(q, a, a) = (q, ε)
+   δ(q, b, b) = (q, ε)
