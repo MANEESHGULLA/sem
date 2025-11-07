@@ -210,6 +210,8 @@ for x in inputs:
     output = mcCullochPitts_NOT(x)
     print(f"Input: ({x}) -> Output: {output}")
 ```
+--- 
+
 # The Perceptron Model
 
 The **Perceptron** was proposed by **Frank Rosenblatt (1958)**.  
