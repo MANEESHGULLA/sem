@@ -210,5 +210,122 @@ for x in inputs:
     output = mcCullochPitts_NOT(x)
     print(f"Input: ({x}) -> Output: {output}")
 ```
+# The Perceptron Model
+
+The **Perceptron** was proposed by **Frank Rosenblatt (1958)**.  
+It is a more general and powerful model than the **McCulloch-Pitts Neuron**.
+
+## Key Ideas
+- Inspired by the **biological neuron**.
+- A perceptron **associates numerical weights** to inputs and uses a **threshold (bias)** to make decisions.
+- Inputs can be **real-valued**, not just 0/1.
+- The perceptron **can learn weights** from training data.
+- A single perceptron can only represent **linearly separable functions**.
+
+---
+
+## Mathematical Representation
+
+A perceptron computes a **weighted sum** of inputs:
+
+\[
+y = f(w_1x_1 + w_2x_2 + \cdots + w_nx_n + b)
+\]
+
+Where:
+- \( x_i \): Inputs
+- \( w_i \): Weights (importance of each input)
+- \( b \): Bias (shifts decision boundary)
+- \( f() \): Activation function (usually **step function**)
+
+### Activation Rule
+\[
+y = \begin{cases}
+1, & \text{if } (w \cdot x + b) \ge 0 \\
+0, & \text{otherwise}
+\end{cases}
+\]
+
+The **bias** acts as a **threshold controller**:
+- Large **negative** bias → Harder to output **1**
+- Large **positive** bias → Easier to output **1**
+
+---
+
+# Example: Decision Making Using Perceptron
+
+**Question:** Should you go to watch a movie this weekend?
+
+### Inputs
+| Condition | Variable | Value |
+|----------|----------|-------|
+| Extra lecture this weekend? | \( x_1 \) | 1 |
+| Friend wants to join? | \( x_2 \) | 0 |
+| Assignments pending? | \( x_3 \) | 1 |
+
+### Weights
+| Input | Weight |
+|-------|--------|
+| \( x_1 \) | \( w_1 = 5 \) |
+| \( x_2 \) | \( w_2 = 3 \) |
+| \( x_3 \) | \( w_3 = 2 \) |
+
+### Case 1 — Bias = **-8**
+\[
+z = (5 \cdot 1) + (3 \cdot 0) + (2 \cdot 1) + (-8) = 5 + 0 + 2 - 8 = -1
+\]
+
+Since \( z < 0 \), **Output = 0 → Do NOT go for the movie**.
+
+---
+
+### Case 2 — Bias = **-3**
+\[
+z = (5 \cdot 1) + (3 \cdot 0) + (2 \cdot 0) + (-3) = 5 - 3 = 2
+\]
+
+Since \( z > 0 \), **Output = 1 → Go for the movie**.
+
+### Conclusion
+- **Bias controls the decision boundary**.
+- Decreasing the negative bias made it easier to output 1.
+
+---
+
+# Implementing Logical Gates Using Perceptron
+
+| Gate | Weights | Bias | Condition Implemented |
+|------|---------|------|----------------------|
+| **OR** | \( w_1 = 5, w_2 = 3 \) | \( b = -2 \) | Fires if at least one input is 1 |
+| **AND** | \( w_1 = 5, w_2 = 3 \) | \( b = -6 \) | Fires only when both inputs are 1 |
+| **NOT** | \( w_1 = -3 \) | \( b = 2 \) | Inverts the input |
+| **NAND** | \( w_1 = -5, w_2 = -3 \) | \( b = 6 \) | Opposite of AND |
+
+---
+
+## Python Implementation of Perceptron Gate
+
+```python
+def perceptron(x1, x2, w1, w2, b):
+    z = w1*x1 + w2*x2 + b
+    return 1 if z >= 0 else 0
+
+# Example: AND Gate
+print("AND Gate using Perceptron")
+for inputs in [(0,0), (0,1), (1,0), (1,1)]:
+    x1, x2 = inputs
+    output = perceptron(x1, x2, w1=5, w2=3, b=-6)
+    print(f"Input: {inputs} -> Output: {output}")
+```
+### Important Limitation of a Single Perceptron
+
+A **single perceptron** can only learn **linearly separable** functions.
+
+| Function | Can a Single Perceptron Learn It? | Reason |
+|---------|-----------------------------------|--------|
+| AND     | ✅ Yes                             | Linearly separable |
+| OR      | ✅ Yes                             | Linearly separable |
+| NAND    | ✅ Yes                             | Linearly separable |
+| XOR     | ❌ No                              | **Not** linearly separable |
 
 
