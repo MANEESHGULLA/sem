@@ -122,7 +122,75 @@ Neural Cell ≈ Neural Processing Unit
 | **ML** | Machines learning from data | Spam detection |
 | **DL** | Learning with neural networks (multi-layered) | Facial recognition, ChatGPT |
 
+---
+
+# McCulloch-Pitts Neuron Model
+
+The **McCulloch-Pitts Neuron** was proposed by **Warren McCulloch (neuroscientist)** and **Walter Pitts (logician)** in **1943**.  
+It is a highly simplified computational model of a **biological neuron**.
+
+In this model:
+
+- `g` is the **aggregation function** which sums the inputs.
+- `f` is the **activation function** which decides whether the neuron **fires (1)** or **does not fire (0)** based on a **threshold**.
+
+The output of the neuron is always:
+y ∈ {0, 1}
+
+---
+
+## McCulloch-Pitts Neuron for OR Logic Function
+
+### Logic Rule
+| x1 | x2 | x1 OR x2 |
+|----|----|----------|
+| 0  | 0  | 0        |
+| 0  | 1  | 1        |
+| 1  | 0  | 1        |
+| 1  | 1  | 1        |
+
+### Threshold Condition
+The neuron **fires** when:
+x1 + x2 ≥ 1
+
+---
+
+## Python Implementation
+
+```python
+# McCulloch-Pitts OR Function
+def mcCullochPitts_OR(x1, x2):
+    # Summation of inputs (aggregation)
+    S = x1 + x2
+    
+    # Threshold for activation
+    if S >= 1:
+        return 1  # Neuron fires
+    else:
+        return 0  # Neuron does not fire
 
 
+# Testing the OR function
+inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
+print("OR Function using McCulloch-Pitts Neuron")
+
+for x1, x2 in inputs:
+    output = mcCullochPitts_OR(x1, x2)
+    print(f"Input: ({x1}, {x2}) -> Output: {output}")
+OR Function using McCulloch-Pitts Neuron
+```
+Output
+Input: (0, 0) -> Output: 0
+Input: (0, 1) -> Output: 1
+Input: (1, 0) -> Output: 1
+Input: (1, 1) -> Output: 1
+
+### Summary
+
+The McCulloch-Pitts neuron is the foundation of artificial neural networks.
+
+It uses binary inputs, summation, and a threshold activation.
+
+Simple logical operations like AND, OR, and NOT can be implemented.
 
 
