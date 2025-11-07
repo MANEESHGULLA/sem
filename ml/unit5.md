@@ -231,7 +231,7 @@ It is a more general and powerful model than the **McCulloch-Pitts Neuron**.
 A perceptron computes a **weighted sum** of inputs:
 
 \[
-y = f(w_1x_1 + w_2x_2 + \cdots + w_nx_n + b)
+y = f(w_1x_1 + w_2x_2 + .... + w_nx_n + b)
 \]
 
 Where:
