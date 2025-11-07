@@ -241,13 +241,13 @@ Where:
 - \( f() \): Activation function (usually **step function**)
 
 ### Activation Rule
-\[
-y = \begin{cases}
+$$
+y =
+\begin{cases}
 1, & \text{if } (w \cdot x + b) \ge 0 \\
 0, & \text{otherwise}
 \end{cases}
-\]
-
+$$
 The **bias** acts as a **threshold controller**:
 - Large **negative** bias → Harder to output **1**
 - Large **positive** bias → Easier to output **1**
