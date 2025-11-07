@@ -123,5 +123,6 @@ Neural Cell ≈ Neural Processing Unit
 | **DL** | Learning with neural networks (multi-layered) | Facial recognition, ChatGPT |
 
 
-- The structure and function are inspired by **biological neurons** in the brain.
-- Therefore:
+
+
+
