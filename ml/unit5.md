@@ -330,4 +330,62 @@ A **single perceptron** can only learn **linearly separable** functions.
 | NAND    | ✅ Yes                             | Linearly separable |
 | XOR     | ❌ No                              | **Not** linearly separable |
 
+---
+### (a) OR Gate
+
+Weights: \( w_1 = 5, \; w_2 = 3 \)  
+Bias: \( b = -2 \)  
+Logic: Output = 1 if **any** input = 1  
+
+| x₁ | x₂ | Sum = \(5x₁ + 3x₂ - 2\) | Output |
+|----|----|------------------------|--------|
+| 0  | 0  | -2                     | 0      |
+| 0  | 1  | 1                      | 1      |
+| 1  | 0  | 3                      | 1      |
+| 1  | 1  | 6                      | 1      |
+
+✔️ Works as OR gate.
+---
+### (b) AND Gate
+
+Weights: \( w_1 = 5, \; w_2 = 3 \)  
+Bias: \( b = -6 \)  
+Logic: Output = 1 **only if both** inputs = 1  
+
+| x₁ | x₂ | Sum = \(5x₁ + 3x₂ - 6\) | Output |
+|----|----|------------------------|--------|
+| 0  | 0  | -6                     | 0      |
+| 0  | 1  | -3                     | 0      |
+| 1  | 0  | -1                     | 0      |
+| 1  | 1  | 2                      | 1      |
+
+✔️ Works as AND gate.
+---
+### (c) NOT Gate
+
+Weight: \( w_1 = -3 \)  
+Bias: \( b = 2 \)  
+Logic: Output = 1 when input = 0  
+
+| x₁ | Sum = \(-3x₁ + 2\) | Output |
+|----|--------------------|--------|
+| 0  | 2                  | 1      |
+| 1  | -1                 | 0      |
+
+✔️ Works as NOT gate.
+---
+### (d) NAND Gate
+
+Weights: \( w_1 = -5, \; w_2 = -3 \)  
+Bias: \( b = 6 \)  
+Logic: NAND = NOT(AND)  
+
+| x₁ | x₂ | Sum = \(-5x₁ - 3x₂ + 6\) | Output |
+|----|----|--------------------------|--------|
+| 0  | 0  | 6                        | 1      |
+| 0  | 1  | 3                        | 1      |
+| 1  | 0  | 1                        | 1      |
+| 1  | 1  | -2                       | 0      |
+
+✔️ Works as NAND gate.
 
