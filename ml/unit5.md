@@ -402,54 +402,71 @@ To achieve this, we introduce the **Sigmoid Neuron**, where the activation funct
 ---
 
 ## The Sigmoid (Logistic) Activation Function
+# Sigmoid Activation Function and Sigmoid Neuron (Perceptron with Continuous Output)
 
-The sigmoid function is defined as:
+## Why Do We Need Sigmoid?
+In a basic perceptron, the output is **binary** (0 or 1) using a **step function**.  
+But in many situations, we need a **smooth output** that represents a **probability** rather than a hard yes/no.
 
-\[
-y = \frac{1}{1 + \exp(-(w_0 + \sum_{i=1}^{n} w_i x_i))}
-\]
-
-Where:
-- \( x_i \) are inputs
-- \( w_i \) are weights
-- \( w_0 \) is bias
-- Output \( y \) is always in the range **(0, 1)**
-
-### Key Properties
-✅ Smooth curve (no sharp jumps)  
-✅ Output is **continuous** and can be interpreted as **probability**  
-✅ Used in neural networks and logistic regression  
+To achieve this, we use the **Sigmoid Activation Function**.
 
 ---
 
-## Example Neuron (2-Input Sigmoid Neuron)
+## The Sigmoid (Logistic) Activation Function
 
-Given:
 \[
-w = [0, 1], \quad b = 4
+f(z) = \frac{1}{1 + e^{-z}}
 \]
 
-Input:
+Where:
+- \( z = w \cdot x + b \)
+- Output \( f(z) \) is always **between 0 and 1**
+- Output can be interpreted as **probability**
+
+---
+
+## Example Neuron Calculation (Step-by-Step)
+
+**Given:**
+
+\[
+w = [0, 1], \qquad b = 4
+\]
+
+**Input:**
+
 \[
 x = [2, 3]
 \]
 
+---
+
 ### Step 1: Compute Weighted Sum
+
 \[
-(w \cdot x) + b = (0 \cdot 2) + (1 \cdot 3) + 4 = 7
+z = (w \cdot x) + b
 \]
 
-### Step 2: Apply Sigmoid Function
+\[
+z = (0 \cdot 2) + (1 \cdot 3) + 4 = 7
+\]
+
+---
+
+### Step 2: Apply Sigmoid Activation Function
+
 \[
 f(z) = \frac{1}{1 + e^{-z}}
 \]
 
 Substitute \( z = 7 \):
+
 \[
 f(7) = \frac{1}{1 + e^{-7}}
 \]
 
 Since:
+
 \[
 e^{-7} \approx 0.0009119
 \]
@@ -458,16 +475,20 @@ e^{-7} \approx 0.0009119
 f(7) = \frac{1}{1 + 0.0009119} \approx 0.99909
 \]
 
-### Output Interpretation
+---
+
+### Final Output Interpretation
+
 \[
-y \approx 0.999 \Rightarrow \text{High probability (≈ 99.9%)}
+y \approx 0.999
 \]
 
-This means the neuron strongly **activates** for this input.
+✅ Output is very close to 1 → **High probability (≈ 99.9%)**  
+✅ The neuron is **highly activated** for this input.
 
 ---
 
-## Coding a Simple Sigmoid Neuron (Feedforward Only)
+## Python Implementation (Feedforward)
 
 ```python
 import numpy as np
@@ -485,7 +506,7 @@ class Neuron:
     def feedforward(self, inputs):
         # Weighted sum + bias
         total = np.dot(self.weights, inputs) + self.bias
-        # Pass through activation
+        # Pass through activation function
         return sigmoid(total)
 
 # Define weights and bias
@@ -497,6 +518,7 @@ n = Neuron(weights, bias)
 
 # Input vector
 x = np.array([2, 3])
+
 # Output
-print(n.feedforward(x))      # 0.9990889488055994
-```
+print(n.feedforward(x))      # ≈ 0.99909
+
