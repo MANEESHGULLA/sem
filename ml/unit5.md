@@ -191,6 +191,24 @@ The McCulloch-Pitts neuron is the foundation of artificial neural networks.
 
 It uses binary inputs, summation, and a threshold activation.
 
-Simple logical operations like AND, OR, and NOT can be implemented.
+Simple logical operations like 
+- AND -> x1 + x2 ≥ 2
+- OR -> x1 + x2 ≥ 1
+### NOT:
+```python
+# McCulloch-Pitts NOT Function
+def mcCullochPitts_NOT(x1):
+    # Inversion of input
+    return 1 - x1
+
+
+# Testing the NOT function
+inputs = [0, 1]
+print("\nNOT Function using McCulloch-Pitts Neuron")
+
+for x in inputs:
+    output = mcCullochPitts_NOT(x)
+    print(f"Input: ({x}) -> Output: {output}")
+```
 
 
