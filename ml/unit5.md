@@ -389,3 +389,114 @@ Logic: NAND = NOT(AND)
 
 ✔️ Works as NAND gate.
 
+----
+
+# Sigmoid Activation Function and Perceptron with Real-Valued Output
+
+## Why Sigmoid?
+The classical perceptron uses a **step function** for activation, where the output is either **0 or 1**.  
+However, sometimes we want the output to be **smooth** and represent a **probability** rather than a binary yes/no.
+
+To achieve this, we introduce the **Sigmoid Neuron**, where the activation function is much smoother.
+
+---
+
+## The Sigmoid (Logistic) Activation Function
+
+The sigmoid function is defined as:
+
+\[
+y = \frac{1}{1 + \exp(-(w_0 + \sum_{i=1}^{n} w_i x_i))}
+\]
+
+Where:
+- \( x_i \) are inputs
+- \( w_i \) are weights
+- \( w_0 \) is bias
+- Output \( y \) is always in the range **(0, 1)**
+
+### Key Properties
+✅ Smooth curve (no sharp jumps)  
+✅ Output is **continuous** and can be interpreted as **probability**  
+✅ Used in neural networks and logistic regression  
+
+---
+
+## Example Neuron (2-Input Sigmoid Neuron)
+
+Given:
+\[
+w = [0, 1], \quad b = 4
+\]
+
+Input:
+\[
+x = [2, 3]
+\]
+
+### Step 1: Compute Weighted Sum
+\[
+(w \cdot x) + b = (0 \cdot 2) + (1 \cdot 3) + 4 = 7
+\]
+
+### Step 2: Apply Sigmoid Function
+\[
+f(z) = \frac{1}{1 + e^{-z}}
+\]
+
+Substitute \( z = 7 \):
+\[
+f(7) = \frac{1}{1 + e^{-7}}
+\]
+
+Since:
+\[
+e^{-7} \approx 0.0009119
+\]
+
+\[
+f(7) = \frac{1}{1 + 0.0009119} \approx 0.99909
+\]
+
+### Output Interpretation
+\[
+y \approx 0.999 \Rightarrow \text{High probability (≈ 99.9%)}
+\]
+
+This means the neuron strongly **activates** for this input.
+
+---
+
+## Coding a Simple Sigmoid Neuron (Feedforward Only)
+
+```python
+import numpy as np
+
+# Activation function: Sigmoid
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+# Neuron class
+class Neuron:
+    def __init__(self, weights, bias):
+        self.weights = weights
+        self.bias = bias
+    
+    def feedforward(self, inputs):
+        # Weighted sum + bias
+        total = np.dot(self.weights, inputs) + self.bias
+        # Pass through activation
+        return sigmoid(total)
+
+# Define weights and bias
+weights = np.array([0, 1])   # w1 = 0, w2 = 1
+bias = 4                      # b = 4
+
+# Create neuron
+n = Neuron(weights, bias)
+
+# Input vector
+x = np.array([2, 3])
+```
+# Output
+print(n.feedforward(x))      # 0.9990889488055994
