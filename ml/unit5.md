@@ -497,6 +497,6 @@ n = Neuron(weights, bias)
 
 # Input vector
 x = np.array([2, 3])
-```
 # Output
 print(n.feedforward(x))      # 0.9990889488055994
+```
