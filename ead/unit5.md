@@ -206,3 +206,26 @@ Extra storage space required
 Write operations (insert, update, delete) become slower
 
 Must be used carefully; unnecessary indexes reduce efficiency
+
+---
+# Key Advantages of BSON
+
+## 1. Supports More Data Types
+JSON cannot represent certain data types such as:
+- **Date**
+- **Binary Data**
+- **ObjectId**
+
+BSON supports all of these, making it more suitable for databases.
+
+## 2. Faster Processing
+Since BSON is **binary**, MongoDB can **read/write** data faster compared to text-based JSON.
+
+## 3. Efficient Indexing
+BSON is organized in a way that makes **index lookups faster**, improving query performance.
+
+---
+
+### In One Line:
+**MongoDB uses BSON because it is faster, supports more data types, and is more storage-efficient than plain JSON.**
+
