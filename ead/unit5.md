@@ -88,3 +88,16 @@ Sharding solves this by distributing data across **multiple servers**.
 | **Transactions** | Strong multi-table **ACID** transactions | Supports transactions, but optimized for **document-level** operations |
 | **Best Used For** | Banking, ERP, HR systems (structured and consistent data) | Social media, IoT, real-time apps (dynamic, rapidly changing data) |
 
+---
+# Difference Between JSON and BSON
+
+| **Feature** | **JSON** | **BSON** |
+|------------|----------|----------|
+| **Type** | Text format | Binary format |
+| **Speed** | Fast to read but slower to build | Slow to read but faster to build and scan |
+| **Space** | Data size is generally smaller | Data size is slightly larger |
+| **Encode & Decode** | Can be sent directly through APIs without encoding/decoding | Encoded before storing and decoded before displaying |
+| **Parse** | Human-readable (no special parsing needed) | Needs parsing (machine-generated / not human-readable) |
+| **Data Types** | Limited types: string, boolean, number, array, object, null | Supports additional types like `binData`, `decimal128`, `date`, etc. |
+| **Usage** | Used mainly for **data transfer** (e.g., APIs, web communication) | Used mainly for **data storage** in databases (e.g., MongoDB) |
+
