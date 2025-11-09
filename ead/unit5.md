@@ -95,7 +95,7 @@ Sharding solves this by distributing data across **multiple servers**.
 |------------|----------|----------|
 | **Type** | Text format | Binary format |
 | **Speed** | Fast to read but slower to build | Slow to read but faster to build and scan |
-| **Space** | Data size is generally smaller | Data size is slightly larger |
+| **Space** | JSON data is slightly smaller in byte size | BSON data is slightly larger in byte size |
 | **Encode & Decode** | Can be sent directly through APIs without encoding/decoding | Encoded before storing and decoded before displaying |
 | **Parse** | Human-readable (no special parsing needed) | Needs parsing (machine-generated / not human-readable) |
 | **Data Types** | Limited types: string, boolean, number, array, object, null | Supports additional types like `binData`, `decimal128`, `date`, etc. |
