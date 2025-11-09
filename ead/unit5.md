@@ -101,3 +101,106 @@ Sharding solves this by distributing data across **multiple servers**.
 | **Data Types** | Limited types: string, boolean, number, array, object, null | Supports additional types like `binData`, `decimal128`, `date`, etc. |
 | **Usage** | Used mainly for **data transfer** (e.g., APIs, web communication) | Used mainly for **data storage** in databases (e.g., MongoDB) |
 
+---
+# Indexing in MongoDB
+
+## Definition
+**Indexing** in MongoDB is a technique used to **speed up search (query) operations** in a collection.
+
+- **Without Index** → MongoDB performs **COLLSCAN** (Collection Scan) → checks every document → **slow**
+- **With Index** → MongoDB performs **IXSCAN** (Index Scan) → directly finds matching documents → **fast**
+
+---
+
+## How Indexes Work
+MongoDB indexes are stored as **B-Tree (Balanced Tree) structures**, which allow:
+
+- Fast searching
+- Fast sorting
+- Fast range queries (e.g., `10 < x < 50`)
+
+---
+
+## Default Index
+MongoDB automatically creates an index on the **_id** field.
+
+```js
+_id: ObjectId("...")   // always indexed by default
+```
+Types of Indexes in MongoDB
+### 1. Single Field Index
+
+Index created on one field.
+```js
+db.employees.createIndex({ ename: 1 })   // 1 → Ascending order
+db.employees.createIndex({ esal: -1 })   // -1 → Descending order
+```
+Used for:
+
+Fast equality queries (ename = "Sunny")
+
+Sorting based on a field
+### 2. Compound Index
+
+Index on multiple fields.
+```js
+db.employees.createIndex({ ename: 1, esal: -1 })
+```
+### 3. Unique Index
+
+Prevents duplicate values for a field.
+```js
+
+db.students.createIndex({ rollno: 1 }, { unique: true })
+```
+
+### How to View Indexes
+```js
+
+db.employees.getIndexes()
+```
+
+### How to Remove Index
+```js
+
+db.employees.dropIndex({ ename: 1 })
+```
+
+### Checking Query Performance
+
+Use explain() to check whether index is used:
+```js
+
+db.employees.find({ ename: "Sunny" }).explain("executionStats")
+```
+
+Look for:
+Term	Meaning	Performance
+COLLSCAN	Full collection scan	Slow (No index used)
+IXSCAN	Index-based scan	Fast (Index used)
+Additional Index Options
+Meaning of Options
+Option	Purpose
+unique	Ensures no duplicates
+background	Creates index without locking database (used in production)
+Syntax
+db.collection.createIndex(
+  { fieldName: 1 },
+  { unique: true, background: true }
+)
+
+### Advantages of Indexing
+
+Faster search/query operations
+
+Faster sorting and range queries
+
+Improved overall query performance
+
+Disadvantages of Indexing
+
+Extra storage space required
+
+Write operations (insert, update, delete) become slower
+
+Must be used carefully; unnecessary indexes reduce efficiency
