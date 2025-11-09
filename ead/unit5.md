@@ -199,7 +199,7 @@ Faster sorting and range queries
 
 Improved overall query performance
 
-Disadvantages of Indexing
+### Disadvantages of Indexing
 
 Extra storage space required
 
