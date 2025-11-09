@@ -178,17 +178,19 @@ Look for:
 Term	Meaning	Performance
 COLLSCAN	Full collection scan	Slow (No index used)
 IXSCAN	Index-based scan	Fast (Index used)
-Additional Index Options
-Meaning of Options
-Option	Purpose
-unique	Ensures no duplicates
-background	Creates index without locking database (used in production)
+
+### Additional Index Options
+
+#### Option	Purpose
+- unique	Ensures no duplicates
+- background	Creates index without locking database (used in production)
 Syntax
+```js
 db.collection.createIndex(
   { fieldName: 1 },
   { unique: true, background: true }
 )
-
+```
 ### Advantages of Indexing
 
 Faster search/query operations
