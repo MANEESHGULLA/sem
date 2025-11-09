@@ -73,3 +73,18 @@ Sharding solves this by distributing data across **multiple servers**.
 4. Config servers maintain the **location map of data**.
 
 ---
+
+# Difference Between RDBMS and MongoDB
+
+| **Feature** | **RDBMS (Relational Database)** | **MongoDB (NoSQL Document Database)** |
+|------------|--------------------------------|--------------------------------------|
+| **Data Model** | Table-based (rows & columns) | Document-based (JSON/BSON) |
+| **Schema** | Fixed schema (structure must be predefined) | Schema-less (structure can change anytime) |
+| **Data Storage** | Data stored in tables | Data stored in **collections** as **documents** |
+| **Relationships** | Uses **JOINs** to connect multiple tables | Embeds related data **inside documents** (reduces need for JOINs) |
+| **Query Language** | **SQL** (Structured Query Language) | **MQL** (MongoDB Query Language) |
+| **Scaling** | **Vertical Scaling** (increasing CPU/RAM of one server) | **Horizontal Scaling / Sharding** (adding more servers) |
+| **Performance** | Slower for handling large unstructured data | Faster for large or unstructured data |
+| **Transactions** | Strong multi-table **ACID** transactions | Supports transactions, but optimized for **document-level** operations |
+| **Best Used For** | Banking, ERP, HR systems (structured and consistent data) | Social media, IoT, real-time apps (dynamic, rapidly changing data) |
+
