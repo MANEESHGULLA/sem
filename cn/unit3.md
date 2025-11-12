@@ -1,39 +1,51 @@
-### Flooding (in Computer Networks)
+# 🌐 Flooding (in Computer Networks)
 
-Flooding is a packet forwarding technique used in computer networks where every incoming packet is sent out on all outgoing links — except the one it came from.
+Flooding is a **packet forwarding technique** used in computer networks where **every incoming packet** is sent out on **all outgoing links — except the one it came from**.
+
+---
 
 ## 🔹 How Flooding Works
 
-When a router receives a packet, it copies the packet and sends it to all its neighboring routers (except the one it received the packet from).
+When a router receives a packet:
+- It **copies the packet**.
+- Sends it to **all neighboring routers**, except the one it received it from.
 
-This continues until the packet reaches its destination — or until some limit is reached.
+This process continues until the packet:
+- **Reaches its destination**, or  
+- **Reaches a specified limit**.
 
-🔹 Problem
+---
 
-## If flooding continues blindly:
+## 🔹 Problem
 
-The same packet may circulate indefinitely, creating duplicate packets and network congestion.
+If flooding continues **blindly**,  
+the **same packet may circulate indefinitely**, creating:
+- Duplicate packets  
+- Network congestion  
 
-This happens because each router keeps re-sending the same packet everywhere.
+👉 This happens because routers keep **re-sending the same packet** again and again.
 
-##🔹 Solution – Damping the Flood
+---
 
-To prevent infinite looping, routers must keep track of packets they’ve already seen.
+## 🔹 Solution – Damping the Flood
 
-## Methods to control flooding:
+To prevent **infinite looping**, routers must **track packets** they’ve already seen.
 
-# 1.Sequence Numbers
+---
 
-  - Each packet gets a unique sequence number from the source router (for example, Packet #1, #2, #3, etc.).
+## 🔹 Methods to Control Flooding
 
-  - Each router maintains a list (or table) for every source router.
+### 1. Sequence Numbers
 
-  - The list stores which sequence numbers have already been received.
+- Each packet is assigned a **unique sequence number** by the source router (e.g., Packet #1, #2, #3, etc.).
+- Each router maintains a **list (or table)** for every source router.
+- The list stores **which sequence numbers** have already been received.
 
-  - When a router gets a packet:
+**When a router receives a packet:**
+1. If the **(source, sequence number)** pair is **new** → it **floods** the packet further.  
+2. If it has **already seen** the pair → it **discards** the packet.
 
-    - If the (source, sequence number) pair is new, it floods the packet further.
+✅ **This prevents sending the same packet multiple times.**
 
-    - If it’s already seen, it discards the packet.
+---
 
-✅ This prevents sending the same packet multiple times.
