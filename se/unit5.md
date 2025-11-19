@@ -515,3 +515,79 @@ Branch coverage implies statement coverage.
 
 Statement coverage does NOT imply branch coverage.
 
+---
+
+## Manual Testing
+
+### **Meaning:**
+Manual Testing is when testers execute test cases **by hand**, without using automation tools.
+
+### **How it works:**
+- Tester enters input manually  
+- Observes the system behavior  
+- Compares actual vs expected output  
+- Records pass/fail  
+
+### **Advantages:**
+- Best for exploratory, usability, and ad-hoc testing  
+- Human intuition catches unexpected issues  
+- No programming skills needed  
+
+### **Disadvantages:**
+- Slow and time-consuming  
+- Error-prone  
+- Not suitable for repeated regression testing  
+- Costly for large projects  
+
+### **Use when:**
+- Test cases change often  
+- UI/UX must be evaluated  
+- Early development stages  
+
+---
+
+## 2️⃣ Automatic Testing (Automated Testing)
+
+### **Meaning:**
+Automated testing uses software tools or scripts to run test cases automatically.
+
+### **How it works:**
+- Inputs given through scripts  
+- SUT executed automatically  
+- Actual vs expected output compared  
+- Reports generated automatically  
+
+### **Advantages:**
+- Very fast  
+- Ideal for regression testing  
+- Reliable and accurate  
+- Can run 24/7  
+- Saves time on large projects  
+
+### **Disadvantages:**
+- Requires programming skills  
+- High initial setup cost  
+- Not suitable for UI/UX testing  
+- Test scripts need maintenance  
+
+### **Use when:**
+- Tests are repetitive (regression)  
+- Large volume of test cases  
+- Performance/load/stress testing  
+- CI/CD pipelines (DevOps)  
+
+---
+
+## 3️⃣ Clear Comparison Table
+
+| **Feature**     | **Manual Testing**      | **Automated Testing**      |
+|-----------------|--------------------------|-----------------------------|
+| **Execution**   | By human                 | By tools/scripts            |
+| **Speed**       | Slow                     | Fast                        |
+| **Accuracy**    | Less (human error)       | High                        |
+| **Cost**        | Low initially            | High initially              |
+| **Best for**    | UI/UX, exploratory       | Regression, performance     |
+| **Skills**      | No programming needed    | Programming required        |
+| **Maintenance** | No scripts               | Scripts must be updated     |
+
+
