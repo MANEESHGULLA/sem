@@ -214,6 +214,8 @@ for x in inputs:
 
 # The Perceptron Model
 
+A perceptron is the simplest form of an artificial neuron used in machine learning and neural networks. It takes multiple inputs, applies weights, adds a bias, and then passes the result through an activation function to produce an output.
+
 The **Perceptron** was proposed by **Frank Rosenblatt (1958)**.  
 It is a more general and powerful model than the **McCulloch-Pitts Neuron**.
 
