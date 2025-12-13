@@ -50,9 +50,8 @@ sub processes
 → External E ↔ P : Data can flow  
 → External E ↔ Datastore : Data cannot flow  
 → Process ↔ Datastore : Data can flow  
-→ process must have 1 input dataflow &  
-   1 outgoing dataflow  
-→ Datastore  
+→ process must have 1 input dataflow & 1 outgoing dataflow  
+→ Datastore must have 1 input dataflow & 1 outgoing dataflow  
 → 2 dataflows cannot cross each other  
 
 ## Disadvantages
