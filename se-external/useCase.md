@@ -21,8 +21,25 @@ By identifying all external actors and their required actions, use case diagrams
 **Symbol:** Stick figure  
 **Description:** Represents the user or any external system that interacts with the system  
 
-- **Primary Actor:** Initiates the use case  
-- **Secondary Actor:** Supports the system  
+- ## Primary Actor
+
+Initiates the use case.
+
+Has a goal to be achieved using the system.
+
+Directly benefits from the system.
+
+Example: Student submitting an assignment, Customer placing an order.
+
+-- ## Secondary Actor
+
+Supports the system to complete the use case.
+
+Does not initiate the interaction.
+
+Provides a service to the system.
+
+Example: Database, Payment Gateway, Email Service.
 
 **Example:** Customer, Bank  
 
