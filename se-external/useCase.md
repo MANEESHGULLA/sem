@@ -21,7 +21,7 @@ By identifying all external actors and their required actions, use case diagrams
 **Symbol:** Stick figure  
 **Description:** Represents the user or any external system that interacts with the system  
 
-- ## Primary Actor
+- ## Primary Actor (left side of the system)
 
 Initiates the use case.
 
@@ -31,7 +31,7 @@ Directly benefits from the system.
 
 Example: Student submitting an assignment, Customer placing an order.
 
--- ## Secondary Actor
+-- ## Secondary Actor (right side of the system)
 
 Supports the system to complete the use case.
 
